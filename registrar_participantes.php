@@ -25,7 +25,14 @@ session_start();
         if (isset($_GET["error"])){
         ?> 
         <br> Error :/ <br>
-        <?php } ?>
+        <?php } 
+            
+            
+            echo "
+            <a href='panel.php'>
+            Volver al inicio 
+            </a>"
+            ?>
 
 
     </body>
