@@ -8,7 +8,7 @@ if(!isset($_SESSION['usuario'])){ //oe teni la sesion iniciada o nao
 }
 
 if(!isset($_SESSION['cantidad de numeros'])) {
-    $SESSION['cantidad de numeros'] = 0;
+    $_SESSION['cantidad de numeros'] = 0;
 }
 $precio_unitario = 2000;
 
