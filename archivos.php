@@ -29,4 +29,9 @@ if (file_exists($archive)) {
     echo json_encode([]); //simplemente evita un colapso si el archivo aun no existe
 }
 
+echo "
+    <a href='panel.php'>
+    Volver al inicio 
+    </a>"
+
 ?>
