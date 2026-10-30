@@ -10,8 +10,8 @@ if (!isset($_SESSION['usuario'])){
 //lo de aqui recibe los datos por metodo POST para el pstman o un formulari por lo que investigue
 $nombre = $_POST['nombre'] ?? '';
 $apellido = $_POST['apellido'] ?? '';
-$numero_rifa = $_POST['categoria'] ?? '';
-
+$numero_rifa = $_POST['ciudad'] ?? '';
+$categoria = $_POST['categoria'] ?? '';
 // el empty revisa si alguno de estos bligatorios esta vacio y si lo esta pues da error 400
 if (empty($nombre) || empty($apellido) || empty($categoria)) {
     http_response_code(400);
@@ -21,13 +21,15 @@ if (empty($nombre) || empty($apellido) || empty($categoria)) {
 
 $archivo = 'participantes.json';
 //esta linea es una forma de leer un rchivo json y se convierta en un array (evita que se rompa ñam ñam :p)
-$participipantes = file_exists($archivo) ? json_decode(file_get_contents($archivo), true) : [];
+$participantes = file_exists($archivo) ? json_decode(file_get_contents($archivo), true) : [];
 
 $nuevoParticipante = [
     "id" => uniqid(), //uniqid() genera automaticamente un ID (senti curisidad cuando me pregunte si habia algo que fuera mas un id rado y pues lo use xd)
     "nombre" => $nombre,
     "apellido" => $apellido,
-    "numero_rifa" => $categoria
+    "categoria" => $categoria,
+    "ciudad" => $ciudad
+    
 ];
 
 
