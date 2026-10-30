@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $_SESSION['cantidad_numeros']++;
         } elseif ($_POST['accion'] === 'restar') {
             //evita los numeros negativos
-            if ($_SESSION['cantidad_numeros'] > 0) {
+            if ($_SESSION['cantidad_numeros'] < 0) {
                 $_SESSION['cantidad_numeros']--;
             }
         }
