@@ -66,6 +66,11 @@
             }
 
         }//si se nota q en esta parte me apoye una banda en la ia xd
+
+            echo "
+            <a href='panel.php'>
+            Volver al inicio 
+            </a>"
     ?>
 
 </html>
