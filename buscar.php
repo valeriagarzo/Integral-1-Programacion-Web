@@ -34,37 +34,16 @@
             $CiudadP = $_GET['ciudad'];
             $CategoriaP = $_GET['categoria'];
 
-            //creo los particimantes
-            //lo q tengo mal pq tenias q hacer eso tu aparte </3
-            $participantes = [
-                [
-                    'nombre' => 'Universidad',
-                    'apellido' => 'Playa Ancha',
-                    'ciudad' => 'Valparaiso',
-                    'categoria' => 'Grupo A'
-                ],
-                [
-                    'nombre' => 'Ryland',
-                    'apellido' => 'Grace',
-                    'ciudad' => 'Erid',
-                    'categoria' =>'Grupo B'
-                ],
-                [
-                    'nombre' => 'Jason',
-                    'apellido' => 'todd',
-                    'ciudad' => 'Gotham',
-                    'categoria' =>'Grupo B'
-                ],
-                [
-                    'nombre' => 'Zohran',
-                    'apellido' => 'Mamdani',
-                    'ciudad' => 'New York',
-                    'categoria' =>'Grupo A'
-                ]
-            ];
-
+            $archvParticipantes = 'participantes.json';
+            if (file_exists($archivo)) {
+                $participantes = file_get_contents($archvParticipantes);
+                
+            } else {
+                echo json_encode([]); //simplemente evita un colapso si el archivo aun no existe
+            }
+           
             $encontrado = false;
-
+            
             //foreach es un for q no una i basicamente
             foreach ($participantes as $p) {
                 // Comparamos las 4 cosas al mismo tiempo usando strcasecmp
