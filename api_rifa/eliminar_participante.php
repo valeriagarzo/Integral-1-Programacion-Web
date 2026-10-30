@@ -24,4 +24,10 @@ if (count($nuevosParticipantes) < count($participantes)) {
     http_response_code(404);
     echo json_encode(["error" => "Participante no encontrado"]);
 }
+echo "Sesión cerrada.";
+echo "
+    <a href='index.php'>
+    Volver a login 
+    </a>
+";
 ?>
