@@ -1,92 +1,72 @@
-<?php
-session_start(); 
-
-if(!isset($_SESSION['id'])){ //teni sesion iniciada?
-    header("Location: index.php");
-}
-?>
 <html>
-<!--weas visuales q le copie al profe, dps lo cambiamos-->
-    <style>
-  .menu-opciones {
-    max-width: 900px;
-    margin: 30px auto;
-    padding: 24px;
-    background: #f5f5f5;
-    border-radius: 16px;
-    font-family: Arial, sans-serif;
-    box-shadow: 0 4px 15px rgba(0,0,0,.10);
-  }
+    <head>
+        <title>Buscador</title>
+    </head>
+    <body>
+<!--form pa recibir datos y dps comparar-->
+        <form action="buscar.php" method="get">
+            Nombre:
+            <input type="text" name="nombre" id="nombre"/>
+            Apellido:
+            <input type="text" name="apellido" id="apellido"/>
+            Ciudad:
+            <input type="text" name="ciudad" id="ciudad"/>
+            Categoria:
+            <input type="text" name="categoria" id="categoria"/>
+            <input type="submit" value="buscar"/>
+        </form>
+        <?php
+        //si tira pa error 
+            if(isset($_GET['error'])){
+        ?>
+            <b>ERROR</b>
+        <?php
+            }
+        ?>
+    </body>
+    
+    <?php
+    //solo va a hacer la busqueda si se activa el get
+        if (isset($_GET['nombre'])) {
+        //recibe los datos y los guarda en variables
+            $NombreP = $_GET['nombre'];
+            $ApellidoP = $_GET['apellido'];
+            $CiudadP = $_GET['ciudad'];
+            $CategoriaP = $_GET['categoria'];
 
-  .menu-opciones h2 {
-    margin: 0 0 20px;
-    color: #222;
-    text-align: center;
-  }
+            $archvParticipantes = 'participantes.json';
+            if (file_exists($archivo)) {
+                $participantes = file_get_contents($archvParticipantes);
+                
+            } else {
+                echo json_encode([]); //simplemente evita un colapso si el archivo aun no existe
+            }
+           
+            $encontrado = false;
+            
+            //foreach es un for q no una i basicamente
+            foreach ($participantes as $p) {
+                // Comparamos las 4 cosas al mismo tiempo usando strcasecmp
+                //strcasecmp compara las variables sin tener en cuenta las mayus o minus
+                if (strcasecmp($NombreP, $p['nombre']) == 0 && 
+                    strcasecmp($ApellidoP, $p['apellido']) == 0 && 
+                    strcasecmp($CiudadP, $p['ciudad']) == 0 && 
+                    strcasecmp($CategoriaP, $p['categoria']) == 0) {
 
-  .botones {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    justify-content: center;
-  }
+                    $encontrado = true;
+                    break; // Si ya lo encontramos, detenemos el bucle
+                }
+            }
 
-  .boton-menu {
-    display: inline-block;
-    padding: 12px 22px;
-    border-radius: 8px;
-    background: #1976d2;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    transition: .2s;
-  }
+            // Fuera del bucle imprimes el resultado final una sola vez
+            if ($encontrado) {
+                echo "Participante encontrado";
+            } else {
+                echo "Participante no encontrado";
+            }
 
-  .boton-menu:hover {
-    background: #0d47a1;
-    transform: translateY(-2px);
-  }
+        }//si se nota q en esta parte me apoye una banda en la ia xd
+    ?>
 
-  
-</style>
-
-<!--aqui ya lo q REALMENTE se ve-->
-    <h1>Acceso concedido!! </h1>
-
-
-<div class="menu-opciones">
-  <h2>Menú de opciones</h2>
-
-  <div class="botones">
-    <!--boton cerrar sesion-->
-    <a class="boton-menu"
-       href="salir.php"
-       rel="noopener noreferrer">
-      Cerrar Sesión
-    </a>
-    <!--boton pa ir a la pag de busqueda-->
-    <a class="boton-menu"
-       href="buscar.php"
-       target="_self"
-       rel="noopener noreferrer">
-      Buscar participantes
-    </a>
-    <!--boton pa ir a la pag de reserva de num de rifa-->
-    <a class="boton-menu"
-       href="rifa.php"
-       target="_self"
-       rel="noopener noreferrer">
-      Reservar Numero
-    </a>
-    <!--boton pa ir a la wea de subir archivos-->
-    <a class="boton-menu"
-       href="subir-comprobante.php"
-       target="_self"
-       rel="noopener noreferrer">
-      Suibir Comprobante
-    </a>
-  </div>
-
- 
-</div>
 </html>
+
