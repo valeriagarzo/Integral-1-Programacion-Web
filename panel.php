@@ -55,27 +55,25 @@ if(!isset($_SESSION['id'])){ //teni sesion iniciada?
       background: #d32f2f;
   }
   .boton-salir:hover {
-      background: #c62828;
-
-  
-</style>
+      background: #c62828; 
+  }
+  </style>
 </head>
 <body>
 <!--aqui ya lo q REALMENTE se ve-->
-    <h1 style="text-align: center;">¡Acceso concedido, <?php echo htmlspecialchars($_SESSION['usuario']); ?>!</h1>
-
+    <h1 style="text-align: center;">¡Acceso concedido, <?php echo htmlspecialchars($_SESSION['usuario']); ?> </h1>
 
 <div class="menu-opciones">
-  <h2>Menú de opciones</h2>
-
-   <h3>Navegacion Web</h3>
+  <h2>Participantes</h2>
 
     <!--boton pa ir a la pag de reserva de num de rifa-->
+
+  <div class="botones">
     <a class="boton-menu"
-       href="rifa.php"
+       href="registrar_participantes.php"
        target="_self"
        rel="noopener noreferrer">
-      Reservar Numero
+      Registrar Participantes
     </a>
     <!--boton pa ir a la pag de busqueda-->
     <a class="boton-menu"
@@ -86,24 +84,75 @@ if(!isset($_SESSION['id'])){ //teni sesion iniciada?
     </a>
     <!--boton pa ir a la wea de subir archivos-->
     <a class="boton-menu"
+       href="actualizar_participantes.php"
+       target="_self"
+       rel="noopener noreferrer">
+      Actualizar Participantes
+    </a>
+
+    <!--boton cerrar sesion-->
+    <a class="boton-menu"
+       href="eliminar_participante.php"
+       rel="noopener noreferrer">
+      Eliminar Participantes
+    </a>
+
+    <a class="boton-menu"
+       href="listar_participantes.php"
+       target="_self"
+       rel="noopener noreferrer">
+      Listar Participantes
+    </a>
+  </div>
+</div>
+
+<div class="menu-opciones">
+  <h2>Datos de Rifa</h2>
+
+    <!--boton pa ir a la pag de reserva de num de rifa-->
+
+  <div class="botones">
+    <a class="boton-menu"
+       href="rifa.php"
+       target="_self"
+       rel="noopener noreferrer">
+      Reservar Numero
+    </a>
+    <!--boton pa ir a la pag de busqueda-->
+    <a class="boton-menu"
+       href="listar_premios.php"
+       target="_self"
+       rel="noopener noreferrer">
+      Lista de premios
+    </a>
+    <!--boton pa ir a la wea de subir archivos-->
+    <a class="boton-menu"
        href="subir-comprobante.php"
        target="_self"
        rel="noopener noreferrer">
       Subir Comprobante
     </a>
-    
 
-  <div class="botones">
     <!--boton cerrar sesion-->
     <a class="boton-menu"
-       href="salir.php"
+       href="archivos.php"
        rel="noopener noreferrer">
-      Cerrar Sesión
+      Historial Comprobantes
     </a>
   </div>
-  <hr style="border: 0; border-top: 1px solid #ddd; margin: 20px 0;">
- <h3>Gestion de registro</h3>
- <div class="botones">
-     
+  
 </div>
+
+
+<div class="botones">
+  <!--boton cerrar sesion-->
+  <a class="boton-menu"
+      href="salir.php"
+      rel="noopener noreferrer">
+    Cerrar Sesión
+  </a>
+</div>
+
+
+
 </html>
