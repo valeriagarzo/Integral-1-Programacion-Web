@@ -1,8 +1,27 @@
 <?php
 session_start(); 
 
-if(!isset($_SESSION['id'])){ //oe teni la sesion iniciada o nao
+if(!isset($_SESSION['usuario'])){ //oe teni la sesion iniciada o nao
     header("Location: index.php");
+    exit();
+}
+
+if(!isset($_SESSION['cantidad de numeros'])) {
+    $SESSION['cantidad de numeros'] = 0;
+}
+$precio_unitario = 2000;
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST['accion'])) {
+        if ($_POST['accion'] === 'sumar') {
+            $_SESSION['cantidad_numeros']++;
+        } elseif ($_POST['accion'] === 'restar') {
+            //evita los numeros negativos
+            if ($_SESSION['cantidad_numeros'] > 0) {
+                $_SESSION['cantidad_numeros']--;
+            }
+        }
+    }
 }
 ?>
 <html>
