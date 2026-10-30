@@ -38,4 +38,10 @@ $participantes[] = $nuevoParticipante;
 file_put_contents($archivo, json_encode($participantes, JSON_PRETTY_PRINT));
 
 echo json_encode(["status" => "success", "mensaje" => "Participante registrado", "data" => $nuevoParticipante]); //actualizacion existosa
+echo "Sesión cerrada.";
+echo "
+    <a href='index.php'>
+    Volver a login 
+    </a>
+";
 ?>
