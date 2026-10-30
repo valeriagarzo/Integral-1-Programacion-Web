@@ -7,8 +7,8 @@ if(!isset($_SESSION['usuario'])){ //oe teni la sesion iniciada o nao
     exit();
 }
 
-if(!isset($_SESSION['cantidad de numeros'])) {
-    $_SESSION['cantidad de numeros'] = 0;
+if(!isset($_SESSION['cantidad_numeros'])) {
+    $_SESSION['cantidad_numeros'] = 0;
 }
 $precio_unitario = 2000;
 
@@ -17,9 +17,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($_POST['accion'] === 'sumar') {
             $_SESSION['cantidad_numeros']++;
         } elseif ($_POST['accion'] === 'restar') {
+            $_SESSION['cantidad_numeros']--;
             //evita los numeros negativos
             if ($_SESSION['cantidad_numeros'] < 0) {
-                $_SESSION['cantidad_numeros']--;
+                $_SESSION['cantidad_numeros']++;
             }
         }
     }
