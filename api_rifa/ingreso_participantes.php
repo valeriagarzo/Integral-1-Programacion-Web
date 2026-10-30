@@ -13,7 +13,7 @@ $apellido = $_POST['apellido'] ?? '';
 $numero_rifa = $_POST['ciudad'] ?? '';
 $categoria = $_POST['categoria'] ?? '';
 // el empty revisa si alguno de estos bligatorios esta vacio y si lo esta pues da error 400
-if (empty($nombre) || empty($apellido) || empty($categoria)) {
+if (empty($nombre) || empty($apellido) || empty($categoria) || empty($ciudad)) {
     http_response_code(400);
     echo json_encode(["error" => "Faltan datos obligatorios"]);
     exit(); 
