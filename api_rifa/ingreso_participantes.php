@@ -4,16 +4,16 @@ header('Content-Type: application/json');
 // por si caso isset es una funcion que comprueba si una variable es null  no
 if (!isset($_SESSION['usuario'])){
     http_response_code(401);
-    echo json_encode(["error" = "No autorizado"0]);
+    echo json_encode(["error" => "No autorizado"]);
     exit();
 }
 //lo de aqui recibe los datos por metodo POST para el pstman o un formulari por lo que investigue
 $nombre = $_POST['nombre'] ?? '';
 $apellido = $_POST['apellido'] ?? '';
-$numero_rifa = $_POST['numero_rifa'] ?? '';
+$numero_rifa = $_POST['categoria'] ?? '';
 
 // el empty revisa si alguno de estos bligatorios esta vacio y si lo esta pues da error 400
-if (empty($nombre) || empty($apellido) || empty($numero_rifa)) {
+if (empty($nombre) || empty($apellido) || empty($categoria)) {
     http_response_code(400);
     echo json_encode(["error" => "Faltan datos obligatorios"]);
     exit(); 
@@ -27,7 +27,7 @@ $nuevoParticipante = [
     "id" => uniqid(), //uniqid() genera automaticamente un ID (senti curisidad cuando me pregunte si habia algo que fuera mas un id rado y pues lo use xd)
     "nombre" => $nombre,
     "apellido" => $apellido,
-    "numero_rifa" => $numero_rifa
+    "numero_rifa" => $categoria
 ];
 
 
