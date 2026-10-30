@@ -21,8 +21,9 @@ $encontrado = false; //una variable que es falso y se hace verdadero cuando si e
 foreach ($participantes as &$p) {
     if ($p['id'] == $id) { //este if es para comprobar si el id que buscamos coincide con el del participante actual.
         $p['nombre'] = $_POST['nombre'] ?? $p['nombre'];
+        $p['ciudad'] = $_POST['ciudad'] ?? $p['ciudad'];
         $p['apellido'] = $_POST['apellido'] ?? $p['apellido'];
-        $p['numero_rifa'] = $_POST['numero_rifa'] ?? $p['numero_rifa'];
+        $p['categria'] = $_POST['categoria'] ?? $p['categoria'];
         $encontrado = true;
         break;
     }
