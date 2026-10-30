@@ -18,5 +18,11 @@ if(!isset($_SESSION['id'])){
     Send this file: <input name="userfile" type="file" />
     <input type="submit" value="Send File" />
 </form>
+<?php
+    echo "
+    <a href='panel.php'>
+    Volver al inicio 
+    </a>"
+    ?>
 
 </html>
