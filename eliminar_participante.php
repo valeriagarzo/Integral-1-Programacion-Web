@@ -8,7 +8,7 @@ if (!isset($_SESSION['usuario'])) {
     exit();
 }
 
-$id = $_GET['id'] ?? '';
+$id = $_GET['usuario'] ?? '';
 $archivo = 'participantes.json';
 $participantes = file_exists($archivo) ? json_decode(file_get_contents($archivo), true) : [];
 
