@@ -13,7 +13,7 @@ $archivo = 'participantes.json';
 $participantes = file_exists($archivo) ? json_decode(file_get_contents($archivo), true) : [];
 
 $nuevosParticipantes = array_filter($participantes, function($p) use ($usuario) {
-    return $p['id'] != $id;
+    return $p['usuario'] != $usuario;
 });
 
 if (count($nuevosParticipantes) < count($participantes)) {
