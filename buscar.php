@@ -35,7 +35,7 @@
             $CategoriaP = $_GET['categoria'];
 
             $archvParticipantes = 'participantes.json';
-            if (file_exists($archivo)) {
+            if (file_exists($archvParticipantes)) {
                 $participantes = file_get_contents($archvParticipantes);
                 
             } else {
