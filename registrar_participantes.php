@@ -7,7 +7,7 @@ session_start();
         <title>Registrar Participantes</title>
     </head>
     <body>
-        <form action="ingreso-participantes.php" method="post">
+        <form action="ingreso_participantes.php" method="post">
             <!--insertar datos-->
             Nombre:
             <input type="text" name="usuario" id="usuario">
