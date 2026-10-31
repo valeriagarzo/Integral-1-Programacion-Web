@@ -10,7 +10,7 @@ if (!isset($_SESSION['usuario'])){
 //lo de aqui recibe los datos por metodo POST para el pstman o un formulari por lo que investigue
 $nombre = $_POST['nombre'] ?? '';
 $apellido = $_POST['apellido'] ?? '';
-$numero_rifa = $_POST['ciudad'] ?? '';
+$ciudad = $_POST['ciudad'] ?? '';
 $categoria = $_POST['categoria'] ?? '';
 // el empty revisa si alguno de estos bligatorios esta vacio y si lo esta pues da error 400
 if (empty($nombre) || empty($apellido) || empty($categoria) || empty($ciudad)) {
