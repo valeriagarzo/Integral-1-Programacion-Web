@@ -11,7 +11,7 @@ if(!isset($_SESSION['id'])){
 <!--es la wea q recibe archivos-->
 
 <!-- The data encoding type, enctype, MUST be specified as below -->
-<form enctype="multipart/form-data" action="__URL__" method="POST">
+<form enctype="multipart/form-data" action="archivos.php" method="POST">
     <!-- MAX_FILE_SIZE must precede the file input field -->
     <input type="hidden" name="MAX_FILE_SIZE" value="30000" />
     <!-- Name of input element determines name in $_FILES array -->
