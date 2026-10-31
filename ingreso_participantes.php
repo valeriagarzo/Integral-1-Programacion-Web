@@ -24,7 +24,6 @@ $archivo = 'participantes.json';
 $participantes = file_exists($archivo) ? json_decode(file_get_contents($archivo), true) : [];
 
 $nuevoParticipante = [
-    "id" => uniqid(), //uniqid() genera automaticamente un ID (senti curisidad cuando me pregunte si habia algo que fuera mas un id rado y pues lo use xd)
     "nombre" => $nombre,
     "apellido" => $apellido,
     "categoria" => $categoria,
