@@ -10,7 +10,7 @@ session_start();
         <form action="ingreso_participantes.php" method="post">
             <!--insertar datos-->
             Nombre:
-            <input type="text" name="usuario" id="usuario">
+            <input type="text" name="nombre" id="nombre">
             Apellido
             <input type="text" name="apellido" id="apellido">
             Ciudad:
