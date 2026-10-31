@@ -1,0 +1,27 @@
+[
+    {
+        "nombre": "Universidad",
+        "apellido": "Playa Ancha",
+        "ciudad": "Valparaiso",
+        "categoria": "Grupo A",
+        "categria": "Grupo A"
+    },
+    {
+        "nombre": "Ryland",
+        "apellido": "Grace",
+        "ciudad": "Erid",
+        "categoria": "Grupo B"
+    },
+    {
+        "nombre": "Jason",
+        "apellido": "todd",
+        "ciudad": "Gotman",
+        "categoria": "Grupo B"
+    },
+    {
+        "nombre": "Zohran",
+        "apellido": "Mamdani",
+        "ciudad": "New York",
+        "categoria": "Grupo A"
+    }
+]
