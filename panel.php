@@ -1,7 +1,7 @@
 <?php
 session_start(); 
 
-if(!isset($_SESSION['id'])){ //teni sesion iniciada?
+if(!isset($_SESSION['id'])){
     header("Location: index.php");
 }
 ?>
@@ -11,7 +11,7 @@ if(!isset($_SESSION['id'])){ //teni sesion iniciada?
 <head>
     <meta charset="UTF-8">
     <title>Panel de administracion - rifa UPLA</title>
-<!--weas visuales q le copie al profe, dps lo cambiamos-->
+
     <style>
   .menu-opciones {
     max-width: 900px;
@@ -70,7 +70,7 @@ if(!isset($_SESSION['id'])){ //teni sesion iniciada?
 
   <div class="botones">
     <a class="boton-menu"
-       href="registrar_participantes.php"
+       href="registrar_participante.php"
        target="_self"
        rel="noopener noreferrer">
       Registrar Participantes
@@ -82,9 +82,9 @@ if(!isset($_SESSION['id'])){ //teni sesion iniciada?
        rel="noopener noreferrer">
       Buscar participantes
     </a>
-    <!--boton pa ir a la wea de subir archivos-->
+  
     <a class="boton-menu"
-       href="actualizar_participantes.php"
+       href="actualizar_participante.php"
        target="_self"
        rel="noopener noreferrer">
       Actualizar Participantes
@@ -125,7 +125,7 @@ if(!isset($_SESSION['id'])){ //teni sesion iniciada?
        rel="noopener noreferrer">
       Lista de premios
     </a>
-    <!--boton pa ir a la wea de subir archivos-->
+    <!--boton pa ir a subir archivos-->
     <a class="boton-menu"
        href="subir-comprobante.php"
        target="_self"
