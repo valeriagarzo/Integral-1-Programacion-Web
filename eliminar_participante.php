@@ -3,7 +3,7 @@ session_start();
 header('Content-Type: application/json');
 
 if (!isset($_SESSION['usuario'])) {
-    http_response_code(401);
+    header("Location: index.php");
     echo json_encode(["error" => "No autorizado"]);
     exit();
 }
@@ -28,6 +28,5 @@ echo "Sesión cerrada.";
 echo "
     <a href='index.php'>
     Volver a login 
-    </a>
-";
+    </a>"
 ?>
